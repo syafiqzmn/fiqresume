@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Education | Syafiq</title>
+    <link rel="stylesheet" href="education-style.css">
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<header class="main-header">
+    <div class="logo-time">
+        <span class="logo">Syafiq</span>
+        <span id="datetime" class="datetime"></span>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="biodata.html">Biodata</a></li>
+            <li><a href="education.html" class="active">Education</a></li>
+            <li><a href="daily-routine.html">Daily Routine</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- EDUCATION CONTENT -->
+<section class="education-section fade-section">
+
+    <h1>Education Background</h1>
+
+    <!-- TEKS BERGERAK -->
+    <div class="scrolling-text">
+        Whats the use of knowledge if there is no manners? 📚
+    </div>
+
+    <!-- TADIKA -->
+    <div class="education-item">
+        <span class="year">2011</span>
+        <h2>Tadika Hanis</h2>
+        <p>Early Childhood Education</p>
+        <p class="desc">
+            Began my early education journey at Tadika Hanis, where I developed
+            basic learning skills such as reading, writing, communication, and
+            social interaction. This stage played an important role in shaping
+            my foundation before entering primary school.
+        </p>
+        <div class="gif-container">
+            <img src="images/gif1.gif" alt="Education GIF 1">
+        </div>
+    </div>
+
+    <!-- PRIMARY SCHOOL -->
+    <div class="education-item">
+        <span class="year">2012 – 2017</span>
+        <h2>SK Taman Nusa Damai</h2>
+        <p>Primary School Education</p>
+        <p class="desc">
+            I began my primary school journey at Sekolah Kebangsaan Taman Nusa Damai,
+            marking my transition into formal education. During this stage, I
+            developed strong foundational skills in reading, writing, mathematics,
+            discipline, and teamwork, which prepared me for secondary-level learning.
+        </p>
+        <div class="gif-container">
+            <img src="images/gif2.gif" alt="Education GIF 2">
+        </div>
+    </div>
+
+    <!-- SECONDARY SCHOOL -->
+    <div class="education-item">
+        <span class="year">2018 – Present</span>
+        <h2>SMK Taman Nusa Damai</h2>
+        <p>Secondary School Education</p>
+        <p class="desc">
+            I continued my education at Sekolah Menengah Kebangsaan Taman Nusa Damai,
+            where I expanded my academic knowledge and developed greater independence
+            and critical thinking skills. This phase strengthened my discipline,
+            leadership, and problem-solving abilities, while preparing me for higher
+            education and future career challenges.
+        </p>
+        <div class="gif-container">
+            <img src="images/gif3.gif" alt="Education GIF 3">
+        </div>
+    </div>
+
+    <!-- DIPLOMA -->
+    <div class="education-item">
+        <span class="year">2023 – Present</span>
+        <h2>Diploma in Information Management</h2>
+        <p>Universiti Teknologi MARA (UiTM)</p>
+        <p class="desc">
+            Currently pursuing a Diploma in Information Management, focusing on
+            information systems, database management, web development, and digital
+            information organization. This programme enhances my technical skills
+            and understanding of effective information handling in organizations.
+        </p>
+        <div class="gif-container">
+            <img src="images/gif4.gif" alt="Education GIF 4">
+        </div>
+    </div>
+
+</section>
+
+<!-- NAVIGATION BUTTONS -->
+<div class="nav-bottom">
+    <a href="index.html" class="nav-link left">← Back to Home</a>
+    <a href="daily-routine.html" class="nav-link right">Explore More! →</a>
+</div>
+
+<!-- AUDIO PLAYER (hidden) -->
+<audio id="audio-player" controls style="display:none;"></audio>
+
+<footer>
+    &copy; 2025 Muhammad Syafiq. All rights reserved.
+</footer>
+
+<script>
+    // FADE EFFECT
+    const faders = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('show', entry.isIntersecting);
+        });
+    }, { threshold: 0.1 });
+    faders.forEach(f => observer.observe(f));
+
+    // MUSIC PLAYER PERSISTENT
+    const audioPlayer = document.getElementById('audio-player');
+    const lastSong = localStorage.getItem('currentSong') || 'songs/song1.mp3';
+    audioPlayer.src = lastSong;
+    audioPlayer.play().catch(()=>{ /* ignore autoplay block */ });
+    
+    // REAL-TIME DATE & TIME
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        };
+        document.getElementById('datetime').textContent = now.toLocaleDateString('en-GB', options);
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home | Syafiq Resume</title>
+    <link rel="stylesheet" href="index-style.css">
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<header class="main-header">
+    <div class="logo-time">
+        <span class="logo">Syafiq</span>
+        <span id="datetime" class="datetime"></span>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="biodata.html">Biodata</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="daily-routine.html">Daily Routine</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- MAIN INTRO -->
+<div class="main-content fade-section" id="intro-section">
+    <div class="intro-wrapper">
+        <div class="intro-text">
+            <p class="welcome-text">Welcome to my personal website</p>
+            <h1>Hi, I’m Syafiq 👋</h1>
+            <p class="intro">
+                Here you can explore my background, skills, experience, and achievements. I am passionate about technology, web development, and design. 
+                Throughout my journey, I have worked on several projects, learned new skills, and developed problem-solving abilities that help me grow 
+                both personally and professionally. Feel free to navigate through each section to get to know more about me, my work, and my journey.
+            </p>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@ap1tzz?_r=1&_t=ZS-92Lm3PmmsKn" target="_blank" class="social-icon tiktok">TikTok</a>
+                <a href="https://www.instagram.com/syfiqzmn?igsh=eG1uemowYXNnYXJw&utm_source=qr" target="_blank" class="social-icon instagram">Instagram</a>
+                <a href="https://wa.me/60127132743" target="_blank" class="social-icon whatsapp">WhatsApp</a>
+            </div>
+        </div>
+        <div class="intro-image">
+            <img src="images/profile.jpg" alt="Profile" class="profile">
+        </div>
+    </div>
+</div>
+
+<!-- MUSIC PLAYER SECTION -->
+<section class="music-section fade-section">
+    <h2>Listen to background sound 🎵</h2>
+    <div class="music-controls">
+        <button class="music-btn" data-src="songs/song1.mp3">Song 1</button>
+        <button class="music-btn" data-src="songs/song2.mp3">Song 2</button>
+        <button class="music-btn" data-src="songs/song3.mp3">Song 3</button>
+    </div>
+    <audio id="audio-player" controls></audio>
+</section>
+
+<!-- WHERE THE JOURNEY BEGAN -->
+<section class="journey-section fade-section">
+    <div class="journey-wrapper">
+        <h2 class="journey-title">Where the journey began!</h2>
+        <div class="journey-image">
+            <img src="images/journey.gif" alt="Journey Image">
+        </div>
+        <p class="journey-description">
+            I started my life at Jalan Kancil 32, Taman Scientex. I was raised with love and guidance from my parents and grew up alongside my two elder brothers. 
+            From a young age, they taught me the values of hard work, kindness, and curiosity. These early experiences shaped who I am today, giving me the foundation 
+            to pursue my passion for technology, learning, and self-development. Every step of my journey, from childhood to my studies and projects, 
+            reflects the support and lessons instilled by my family.
+        </p>
+        <a href="biodata.html" class="explore-link">Explore more!</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    &copy; 2025 Muhammad Syafiq. All rights reserved.
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // FADE EFFECT
+    const faders = document.querySelectorAll('.fade-section');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                entry.target.classList.remove('show');
+            } else {
+                entry.target.classList.add('show');
+            }
+        });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // MUSIC PLAYER WITH PERSISTENCE
+    const audioPlayer = document.getElementById('audio-player');
+    const buttons = document.querySelectorAll('.music-btn');
+
+    const lastSong = localStorage.getItem('currentSong') || 'songs/song1.mp3';
+    audioPlayer.src = lastSong;
+    audioPlayer.play().catch(()=>{});
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.getAttribute('data-src');
+            audioPlayer.src = src;
+            audioPlayer.play();
+            localStorage.setItem('currentSong', src);
+        });
+    });
+
+    // REAL-TIME DATE & TIME
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        };
+        document.getElementById('datetime').textContent = now.toLocaleDateString('en-GB', options);
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>

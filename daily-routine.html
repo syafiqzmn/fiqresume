@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Routine | Syafiq</title>
+    <link rel="stylesheet" href="daily-routine-style.css">
+
+</head>
+<body>
+
+<!-- HEADER NAVIGATION -->
+<header class="main-header">
+    <div class="logo-time">
+        <span class="logo">Syafiq</span>
+        <span id="datetime" class="datetime"></span>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="biodata.html">Biodata</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="daily-routine.html" class="active">Daily Routine</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- DAILY ROUTINE CONTENT -->
+<section class="education-section fade-section">
+
+    <h1>Daily Routine</h1>
+
+    <!-- TEKS BERGERAK -->
+    <div class="scrolling-text">
+        "Consistency is the key to success!" - My Daily Routine
+    </div>
+
+    <table class="routine-table">
+        <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        <tr>
+            <td>6:00 AM – 7:00 AM</td>
+            <td colspan="5">Wake up & breakfast</td>
+            <td>Wake up later & breakfast</td>
+            <td>Wake up & breakfast</td>
+        </tr>
+        <tr>
+            <td>7:00 AM – 1:00 PM</td>
+            <td colspan="5">Lectures & classes</td>
+            <td>Personal activities</td>
+            <td>Family time</td>
+        </tr>
+        <tr>
+            <td>1:00 PM – 2:00 PM</td>
+            <td colspan="4">Lunch & rest</td>
+            <td>Lunch & prayer</td>
+            <td>Lunch & rest</td>
+            <td>Lunch with family</td>
+        </tr>
+        <tr>
+            <td>2:00 PM – 5:00 PM</td>
+            <td>Lectures & classes</td>
+            <td>Assignments & revision</td>
+            <td>Group discussion</td>
+            <td>Lecture & classes</td>
+            <td>Self-study</td>
+            <td>Leisure / hobbies</td>
+            <td>Preparation for week</td>
+        </tr>
+        <tr>
+            <td>5:00 PM – 7:00 PM</td>
+            <td colspan="5">Exercise & rest</td>
+            <td>Outdoor activities</td>
+            <td>Relaxation</td>
+        </tr>
+        <tr>
+            <td>7:00 PM – 11:00 PM</td>
+            <td colspan="2">Study & revision</td>
+            <td>Online learning</td>
+            <td>Study & revision</td>
+            <td>Light revision</td>
+            <td>Entertainment</td>
+            <td>Early rest</td>
+        </tr>
+        <tr>
+            <td>11:00 PM</td>
+            <td colspan="7">Sleep</td>
+        </tr>
+    </table>
+
+    <!-- NAV BOTTOM -->
+    <div class="nav-bottom">
+        <a href="education.html" class="nav-link">← Back to Education</a>
+        <a href="skills.html" class="nav-link">Explore More! →</a>
+    </div>
+
+</section>
+
+<!-- AUDIO PLAYER (hidden) -->
+<audio id="audio-player" controls style="display:none;"></audio>
+
+<footer>
+    &copy; 2025 Muhammad Syafiq. All rights reserved.
+</footer>
+
+<script>
+    // FADE EFFECT
+    const faders = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('show', entry.isIntersecting);
+        });
+    }, { threshold: 0.1 });
+    faders.forEach(f => observer.observe(f));
+
+    // MUSIC PLAYER PERSISTENT
+    const audioPlayer = document.getElementById('audio-player');
+    const lastSong = localStorage.getItem('currentSong') || 'songs/song1.mp3';
+    audioPlayer.src = lastSong;
+    audioPlayer.play().catch(()=>{ /* ignore autoplay block */ });
+
+        // REAL-TIME DATE & TIME
+    function updateDateTime() {
+        const now = new Date();
+        const options = { 
+            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        };
+        document.getElementById('datetime').textContent = now.toLocaleDateString('en-GB', options);
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= BODY ================= */
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #141414;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #e50914;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 4px;
+}
+
+/* ================= SECTION ================= */
+.education-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 140px 20px 60px;
+}
+
+.education-section h1 {
+    font-size: 32px;
+    color: #e50914;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* ================= SCROLLING TEXT ================= */
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 18px;
+    color: #e50914;       /* WARNA MERAH */
+    font-weight: bold;     /* BOLD */
+    font-style: italic;    /* ITALIC */
+    text-align: center;
+    margin: 20px 0 40px;  /* GAP ATAS & BAWAH */
+    animation: moveLeft 12s linear infinite;
+}
+
+@keyframes moveLeft {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ================= DAILY ROUTINE TABLE ================= */
+.routine-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.routine-table th {
+    background-color: #e50914;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+}
+
+.routine-table td {
+    background-color: #1c1c1c;
+    padding: 15px;
+    color: #dddddd;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+}
+
+.routine-table td:hover {
+    background-color: #2a2a2a;
+    transition: 0.3s ease;
+}
+
+/* ================= NAV BOTTOM ================= */
+.nav-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 50px;
+}
+
+.nav-link {
+    color: #e50914;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #888;
+}
+
+/* ================= FADE EFFECT ================= */
+.fade-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1.2s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 800px) {
+    .routine-table th,
+    .routine-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .nav-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+        /* TEKS BERGERAK */
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            font-size: 18px;
+            color: #e50914;
+            margin: 20px 0;
+            animation: moveLeft 12s linear infinite;
+        }
+
+        @keyframes moveLeft {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }

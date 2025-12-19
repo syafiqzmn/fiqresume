@@ -1,0 +1,275 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #141414;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* ================= HEADER ================= */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #e50914;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 4px;
+}
+
+
+/* ================= MAIN INTRO ================= */
+.main-content {
+    text-align: center;
+    padding: 120px 20px 50px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-content .intro-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.main-content .intro-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.main-content .intro-text .welcome-text {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.main-content .intro-text h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.main-content .intro-text p.intro {
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.main-content .intro-image img.profile {
+    width: 350px;  
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e50914;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.social-icon.tiktok { background-color: #010101; }
+.social-icon.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-icon.whatsapp { background-color: #25D366; color: #fff; }
+
+.social-icon:hover { transform: scale(1.1); }
+
+/* ================= MUSIC PLAYER ================= */
+.music-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.music-section h2 {
+    color: #e50914;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.music-btn {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: 2px solid #e50914;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.music-btn:hover {
+    background-color: #e50914;
+    color: #ffffff;
+}
+
+audio#audio-player {
+    width: 80%;
+    max-width: 500px;
+    outline: none;
+    border-radius: 10px;
+}
+
+/* ================= JOURNEY SECTION ================= */
+.journey-section {
+    text-align: left;
+    padding: 50px 20px;
+    max-width: 1300px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.journey-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.journey-title {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.journey-image img {
+    width: 100%;
+    max-width: 1252px;
+    height: auto;
+    aspect-ratio: 1252 / 411;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.journey-description {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ================= FADE-IN/OUT SECTIONS ================= */
+.fade-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: rgba(0,0,0,0.6);
+    color: #888;
+    text-align: center;
+    padding: 15px;
+    margin-top: 60px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .main-content .intro-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-content .intro-image img.profile {
+        width: 180px;
+        height: 180px;
+    }
+
+    .main-content .intro-text {
+        text-align: center;
+    }
+
+    .journey-title {
+        font-size: 24px;
+    }
+
+    .journey-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .journey-description {
+        font-size: 14px;
+    }
+}
+.explore-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e50914;        /* WARNA MERAH */
+    text-decoration: none;
+    font-style: italic;
+    font-size: 14px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.explore-link:hover {
+    transform: translateX(6px);
+    color: #ffffff;         /* Warna berubah putih bila hover */
+}
